@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.opennms.features.rest</groupId>
+    <artifactId>performancedata</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    
+    <name>OpenNMS REST API :: Performancedata</name>
+    
+    <packaging>bundle</packaging>
+    
+    <properties>
+        <bundle.symbolicName>org.opennms.features.rest.performancedata</bundle.symbolicName>
+        <bundle.namespace>org.opennms.features.rest.performancedata</bundle.namespace>
+    </properties>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Version>${project.version}</Bundle-Version>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <dependencies>
+        <!-- OpenNMS dependencies -->
+        <dependency>
+            <groupId>org.opennms</groupId>
+            <artifactId>opennms-dao</artifactId>
+            <version>1.13.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.opennms</groupId>
+            <artifactId>opennms-model</artifactId>
+            <version>1.13.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>5.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <version>5.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>jsr311-api</artifactId>
+            <version>1.1.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    
+    <repositories>
+        <!-- OpenNMS Repository Snapshot -->
+                <repository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <id>opennms-snapshots</id>
+            <name>OpenNMS Snapshot Maven Repository</name>
+            <url>http://maven.opennms.org/content/groups/opennms.org-snapshot/</url>
+        </repository>
+        
+        <!-- OpenNMS Repository Release -->
+<!--        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <id>opennms-release</id>
+            <name>OpenNMS Snapshot Maven Repository</name>
+            <url>http://maven.opennms.org/content/groups/opennms.org-release/</url>
+        </repository>-->
+    </repositories>
+</project>
